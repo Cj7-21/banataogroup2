@@ -1,0 +1,795 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities — AnimaLearn</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ACTIVITY QUIZ SYSTEM */
+
+        .activity-quiz {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(108, 99, 255, 0.06);
+            border: 1px solid var(--clr-border);
+            border-radius: 14px;
+        }
+
+        .quiz-heading {
+            margin-bottom: 1.25rem;
+        }
+
+        .quiz-heading h3 {
+            color: var(--clr-white);
+            font-size: 1.25rem;
+            margin-bottom: .4rem;
+        }
+
+        .quiz-heading p {
+            color: var(--clr-muted);
+            font-size: .88rem;
+        }
+
+        .quiz-question {
+            padding: 1.15rem 0;
+            border-top: 1px solid var(--clr-border);
+        }
+
+        .quiz-question h4 {
+            color: var(--clr-white);
+            font-size: .95rem;
+            margin-bottom: .85rem;
+        }
+
+        .quiz-option {
+            display: flex;
+            align-items: center;
+            gap: .65rem;
+            padding: .7rem .85rem;
+            margin-bottom: .5rem;
+            border: 1px solid var(--clr-border);
+            border-radius: 9px;
+            color: var(--clr-text);
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--clr-accent);
+            background: rgba(108, 99, 255, .08);
+        }
+
+        .quiz-option input {
+            accent-color: var(--clr-accent);
+        }
+
+        .quiz-option.correct {
+            border-color: #35c98b;
+            background: rgba(53, 201, 139, .12);
+            color: #35c98b;
+        }
+
+        .quiz-option.incorrect {
+            border-color: #ff646e;
+            background: rgba(255, 100, 110, .12);
+            color: #ff646e;
+        }
+
+        .quiz-feedback {
+            display: none;
+            margin-top: .65rem;
+            padding: .7rem .85rem;
+            border-radius: 8px;
+            font-size: .85rem;
+        }
+
+        .quiz-feedback.correct {
+            display: block;
+            color: #35c98b;
+            background: rgba(53, 201, 139, .1);
+        }
+
+        .quiz-feedback.incorrect {
+            display: block;
+            color: #ff777f;
+            background: rgba(255, 100, 110, .1);
+        }
+
+        .quiz-submit {
+            width: 100%;
+            margin-top: 1rem;
+            padding: .9rem 1rem;
+            border: none;
+            border-radius: 9px;
+            background: var(--clr-accent);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .quiz-submit:hover {
+            filter: brightness(1.15);
+        }
+
+        .quiz-result {
+            display: none;
+            margin-top: 1rem;
+            padding: 1.2rem;
+            text-align: center;
+            border: 1px solid var(--clr-border);
+            border-radius: 10px;
+            background: rgba(108, 99, 255, .1);
+        }
+
+        .quiz-result.show {
+            display: block;
+        }
+
+        .quiz-result h3 {
+            color: var(--clr-white);
+            margin-bottom: .4rem;
+        }
+
+        .quiz-score {
+            color: var(--clr-accent2);
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .quiz-result p {
+            color: var(--clr-muted);
+            margin-top: .4rem;
+        }
+
+        @media (max-width: 600px) {
+            .activity-quiz {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-fade">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container navbar__inner">
+            <a class="navbar__logo" href="index.html">🎬 <span>Anima</span>Learn</a>
+
+            <ul class="navbar__links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+                <li><a href="activities.html" class="active">Activities</a></li>
+            </ul>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <div class="container">
+            <span class="page-hero__label">Practice Tasks</span>
+            <h1>Activities</h1>
+            <p>Apply the concepts from each lesson through short analysis, design, and planning tasks.</p>
+        </div>
+    </div>
+
+    <!-- ACTIVITIES -->
+    <section class="section">
+        <div class="container activities-grid">
+
+            <!-- ACTIVITY 1 -->
+            <div class="activity-card">
+                <div class="activity-card__header">
+                    <div class="activity-card__num">01</div>
+                    <div class="activity-card__meta">
+                        <h3>Animation Through Ages</h3>
+                        <p>Research Task · Individual Activity</p>
+                    </div>
+                </div>
+
+                <div class="activity-card__body">
+                    <p>Create a timeline showing the development of animation. Include the early optical devices, important milestones, and changes brought by digital animation.</p>
+
+                    <div class="guide-questions">
+                        <div class="guide-q">
+                            <span class="guide-q__bullet">Q1.</span>
+                            <div>
+                                <strong>What are the differences between the thaumatrope, phenakistoscope, zoetrope, and flipbook?</strong>
+                                <textarea class="answer-area" placeholder="Type your answer here…"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="guide-q">
+                            <span class="guide-q__bullet">Q2.</span>
+                            <div>
+                                <strong>Which historical development had the greatest effect on animation? Explain your choice.</strong>
+                                <textarea class="answer-area" placeholder="Type your answer here…"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="guide-q">
+                            <span class="guide-q__bullet">Q3.</span>
+                            <div>
+                                <strong>How did digital tools change the way animators create and present animation?</strong>
+                                <textarea class="answer-area" placeholder="Type your answer here…"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box" style="margin-top:1.5rem;">
+                        <div class="info-box__title">📎 Submission Note</div>
+                        <p>Submit your timeline as a hand-drawn chart or a digital layout. Add dates and short explanations for each milestone.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTIVITY 2 -->
+            <div class="activity-card">
+                <div class="activity-card__header">
+                    <div class="activity-card__num">02</div>
+                    <div class="activity-card__meta">
+                        <h3>Plan Your Animation Studio</h3>
+                        <p>Planning Task · Individual / Pair Activity</p>
+                    </div>
+                </div>
+
+                <div class="activity-card__body">
+                    <p>Develop a simple profile for a fictional animation studio. Define its identity, purpose, target audience, and the people needed to complete a production.</p>
+
+                    <div class="guide-questions">
+                        <div class="guide-q">
+                            <span class="guide-q__bullet">Q1.</span>
+                            <div>
+                                <strong>What name and brand identity would you give your animation studio?</strong>
+                                <textarea class="answer-area" placeholder="Type your answer here…"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="guide-q">
+                            <span class="guide-q__bullet">Q2.</span>
+                            <div>
+                                <strong>Write one vision statement and one mission statement for your studio.</strong>
+                                <textarea class="answer-area" placeholder="Type your answer here…"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="guide-q">
+                            <span class="guide-q__bullet">Q3.</span>
+                            <div>
+                                <strong>Who is your target audience, and what roles would your production team need?</strong>
+                                <textarea class="answer-area" placeholder="Type your answer here…"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTIVITY 3 -->
+            <div class="activity-card">
+                <div class="activity-card__header">
+                    <div class="activity-card__num">03</div>
+                    <div class="activity-card__meta">
+                        <h3>Visual Design and Color Board</h3>
+                        <p>Creative Task · Individual Activity</p>
+                    </div>
+                </div>
+
+                <div class="activity-card__body">
+                    <p>Create a visual board for a character, object, or scene. Apply the elements of design, choose a suitable color scheme, and use typography to communicate a clear mood.</p>
+
+                    <h4 style="margin-bottom:0.75rem; color:var(--clr-white); font-size:1rem;">Design Checklist</h4>
+
+                    <div class="guide-questions">
+                        <div class="guide-q">
+                            <span class="guide-q__bullet">✔</span>
+                            <div>Use at least four visual elements, such as line, shape, form, color, space, or texture.</div>
+                        </div>
+
+                        <div class="guide-q">
+                            <span class="guide-q__bullet">✔</span>
+                            <div>Choose a color scheme and keep the colors consistent with the intended mood.</div>
+                        </div>
+
+                        <div class="guide-q">
+                            <span class="guide-q__bullet">✔</span>
+                            <div>Use readable typography with a clear visual hierarchy.</div>
+                        </div>
+
+                        <div class="guide-q">
+                            <span class="guide-q__bullet">✔</span>
+                            <div>Arrange the elements so the main subject stands out.</div>
+                        </div>
+                    </div>
+
+                    <div class="guide-questions" style="margin-top:1.25rem;">
+                        <div class="guide-q">
+                            <span class="guide-q__bullet">Q1.</span>
+                            <div>
+                                <strong>Which visual elements did you use, and how do they support your design?</strong>
+                                <textarea class="answer-area" placeholder="Type your answer here…"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="guide-q">
+                            <span class="guide-q__bullet">Q2.</span>
+                            <div>
+                                <strong>What color scheme and typeface did you choose? Explain your choices.</strong>
+                                <textarea class="answer-area" placeholder="Type your answer here…"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTIVITY 4 -->
+            <div class="activity-card">
+                <div class="activity-card__header">
+                    <div class="activity-card__num">04</div>
+                    <div class="activity-card__meta">
+                        <h3>Image Format and Storyboard Practice</h3>
+                        <p>Performance Task · Individual Activity</p>
+                    </div>
+                </div>
+
+                <div class="activity-card__body">
+                    <p>Prepare a short storyboard with six panels. For each panel, identify the camera shot and describe the action. Then choose a suitable image format for the artwork you plan to use.</p>
+
+                    <div class="guide-questions">
+                        <div class="guide-q">
+                            <span class="guide-q__bullet">Q1.</span>
+                            <div>
+                                <strong>What is the difference between raster and vector images?</strong>
+                                <textarea class="answer-area" placeholder="Type your answer here…"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="guide-q">
+                            <span class="guide-q__bullet">Q2.</span>
+                            <div>
+                                <strong>When would you choose JPEG, PNG, GIF, or HEIC for an image? Explain your choices.</strong>
+                                <textarea class="answer-area" placeholder="Type your answer here…"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="guide-q">
+                            <span class="guide-q__bullet">Q3.</span>
+                            <div>
+                                <strong>Which camera shots did you use in your storyboard, and what does each shot communicate?</strong>
+                                <textarea class="answer-area" placeholder="Type your answer here…"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="guide-q">
+                            <span class="guide-q__bullet">Q4.</span>
+                            <div>
+                                <strong>How does the order of panels help viewers understand the beginning, middle, and end?</strong>
+                                <textarea class="answer-area" placeholder="Type your answer here…"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box" style="margin-top:1.5rem;">
+                        <div class="info-box__title">⭐ Grading Guide</div>
+                        <p>Your output will be assessed based on accuracy of lesson concepts (30%), clarity of visual planning (30%), creativity and organization (20%), and completeness (20%).</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LEARNING RESOURCES -->
+    <section class="section resources-section" style="background: var(--clr-surface); border-top: 1px solid var(--clr-border);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__label">Supplementary Materials</span>
+                <h2>Learning Resources</h2>
+                <p>Use these tools and references to support your animation activities.</p>
+            </div>
+
+            <div class="resources-list">
+
+                <div class="resource-item">
+                    <div class="resource-item__icon">🎨</div>
+                    <div class="resource-item__info">
+                        <h4>FlipaClip</h4>
+                        <p>A mobile tool for practicing frame-by-frame animation.</p>
+                    </div>
+                    <a href="https://flipaclip.com" target="_blank" rel="noopener noreferrer" class="resource-item__link">Visit →</a>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-item__icon">💻</div>
+                    <div class="resource-item__info">
+                        <h4>Blender</h4>
+                        <p>Free and open-source software for 3D modeling, animation, and rendering.</p>
+                    </div>
+                    <a href="https://www.blender.org" target="_blank" rel="noopener noreferrer" class="resource-item__link">Visit →</a>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-item__icon">🛠️</div>
+                    <div class="resource-item__info">
+                        <h4>Free Animation Software Toolkit</h4>
+                        <p>Explore Blender for 3D animation and Krita for 2D frame-by-frame animation.</p>
+                    </div>
+                    <a href="https://carseandwaterman.com/animation-toolkit?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" class="resource-item__link">Visit →</a>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-item__icon">▶️</div>
+                    <div class="resource-item__info">
+                        <h4>Complete 12 Principles Video Series</h4>
+                        <p>Watch beginner-friendly video lessons with examples of each animation principle.</p>
+                    </div>
+                    <a href="https://www.classcentral.com/course/youtube-12-principles-of-animation-the-complete-series-120719?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" class="resource-item__link">Visit →</a>
+                </div>
+
+                <div class="resource-item">
+                    <div class="resource-item__icon">🎬</div>
+                    <div class="resource-item__info">
+                        <h4>Principles of Animation Course</h4>
+                        <p>Study animation history, animation types, character design, and walk cycles.</p>
+                    </div>
+                    <a href="https://alison.com/course/principles-of-animation?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" class="resource-item__link">Visit →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">🎬 <span>Anima</span>Learn</div>
+
+            <div class="footer__info">
+                Animation · Senior High School · SY 2026-2027<br>
+                Educational website created for educational purposes<br>
+                Created by: <strong>Group 2</strong>
+            </div>
+
+            <div class="footer__links">
+                <a href="index.html">Home</a>
+                <a href="lessons.html">Lessons</a>
+                <a href="activities.html">Activities</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // NAVBAR
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('open');
+            });
+        }
+
+        const navbar = document.querySelector('.navbar');
+
+        const updateNavbar = () => {
+            if (navbar) {
+                navbar.classList.toggle('is-scrolled', window.scrollY > 20);
+            }
+        };
+
+        updateNavbar();
+        window.addEventListener('scroll', updateNavbar, { passive: true });
+
+
+        // QUIZ QUESTIONS
+        const quizData = [
+            {
+                questions: [
+                    {
+                        question: "Which device uses two images on opposite sides of a spinning disk?",
+                        options: ["Zoetrope", "Thaumatrope", "Flipbook", "Phenakistoscope"],
+                        answer: 1,
+                        explanation: "A thaumatrope combines two images when spun quickly."
+                    },
+                    {
+                        question: "Which animation device uses a rotating cylinder with viewing slits?",
+                        options: ["Zoetrope", "Flipbook", "Thaumatrope", "Camera"],
+                        answer: 0,
+                        explanation: "A zoetrope uses a rotating cylinder and a sequence of images."
+                    },
+                    {
+                        question: "What major change did digital technology bring to animation?",
+                        options: [
+                            "It removed the need for storytelling.",
+                            "It stopped the use of characters.",
+                            "It introduced digital tools for creating and editing animation.",
+                            "It replaced all forms of drawing."
+                        ],
+                        answer: 2,
+                        explanation: "Digital tools help animators create, edit, and present animation."
+                    }
+                ]
+            },
+            {
+                questions: [
+                    {
+                        question: "What does a studio's vision statement describe?",
+                        options: [
+                            "Its long-term goals and future direction.",
+                            "The daily attendance of employees.",
+                            "The price of animation software.",
+                            "The names of its customers."
+                        ],
+                        answer: 0,
+                        explanation: "A vision statement describes what the studio hopes to become."
+                    },
+                    {
+                        question: "Who creates the visual movements of animated characters?",
+                        options: ["Accountant", "Animator", "Marketing assistant", "Receptionist"],
+                        answer: 1,
+                        explanation: "Animators create movement and bring characters to life."
+                    },
+                    {
+                        question: "Why should an animation studio identify its target audience?",
+                        options: [
+                            "To avoid planning its projects.",
+                            "To make every project look the same.",
+                            "To understand who its content is intended for.",
+                            "To remove the need for a production team."
+                        ],
+                        answer: 2,
+                        explanation: "A target audience helps a studio plan content for its intended viewers."
+                    }
+                ]
+            },
+            {
+                questions: [
+                    {
+                        question: "Which visual element refers to the surface quality of an object?",
+                        options: ["Texture", "Space", "Line", "Shape"],
+                        answer: 0,
+                        explanation: "Texture describes how a surface looks or feels."
+                    },
+                    {
+                        question: "Which color scheme uses colors opposite each other on the color wheel?",
+                        options: ["Monochromatic", "Analogous", "Complementary", "Neutral"],
+                        answer: 2,
+                        explanation: "Complementary colors sit opposite each other on the color wheel."
+                    },
+                    {
+                        question: "What is the purpose of visual hierarchy in a design?",
+                        options: [
+                            "To make all elements look identical.",
+                            "To guide the viewer's attention to important elements.",
+                            "To remove all text.",
+                            "To use as many colors as possible."
+                        ],
+                        answer: 1,
+                        explanation: "Visual hierarchy helps viewers identify the most important parts of a design."
+                    }
+                ]
+            },
+            {
+                questions: [
+                    {
+                        question: "What happens when you enlarge a raster image too much?",
+                        options: [
+                            "It automatically becomes a vector.",
+                            "It loses all its colors.",
+                            "It becomes pixelated.",
+                            "Its resolution increases."
+                        ],
+                        answer: 2,
+                        explanation: "Raster images use pixels, so enlarging them too much causes pixelation."
+                    },
+                    {
+                        question: "Which image format supports transparency?",
+                        options: ["PNG", "JPEG", "BMP", "JPG"],
+                        answer: 0,
+                        explanation: "PNG supports transparent backgrounds."
+                    },
+                    {
+                        question: "What is the main purpose of a storyboard?",
+                        options: [
+                            "To calculate animation expenses.",
+                            "To plan scenes and organize the sequence of events.",
+                            "To select computer hardware.",
+                            "To edit audio recordings."
+                        ],
+                        answer: 1,
+                        explanation: "A storyboard organizes scenes and shows how a story progresses."
+                    }
+                ]
+            }
+        ];
+
+
+        // CREATE QUIZZES
+        const activityCards = document.querySelectorAll('.activity-card');
+
+        activityCards.forEach((card, activityIndex) => {
+            const body = card.querySelector('.activity-card__body');
+            const quiz = quizData[activityIndex];
+
+            if (!body || !quiz) return;
+
+            const quizContainer = document.createElement('div');
+            quizContainer.className = 'activity-quiz';
+
+            const heading = document.createElement('div');
+            heading.className = 'quiz-heading';
+            heading.innerHTML = `
+                <h3>📝 Knowledge Check</h3>
+                <p>Answer all questions and submit your answers to see your score.</p>
+            `;
+
+            quizContainer.appendChild(heading);
+
+            quiz.questions.forEach((question, questionIndex) => {
+                const questionBox = document.createElement('div');
+                questionBox.className = 'quiz-question';
+
+                const questionTitle = document.createElement('h4');
+                questionTitle.textContent =
+                    `${questionIndex + 1}. ${question.question}`;
+
+                questionBox.appendChild(questionTitle);
+
+                question.options.forEach((option, optionIndex) => {
+                    const label = document.createElement('label');
+                    label.className = 'quiz-option';
+
+                    const radio = document.createElement('input');
+                    radio.type = 'radio';
+                    radio.name = `activity-${activityIndex}-question-${questionIndex}`;
+                    radio.value = optionIndex;
+
+                    const optionText = document.createElement('span');
+                    optionText.textContent = option;
+
+                    label.appendChild(radio);
+                    label.appendChild(optionText);
+                    questionBox.appendChild(label);
+                });
+
+                const feedback = document.createElement('div');
+                feedback.className = 'quiz-feedback';
+
+                questionBox.appendChild(feedback);
+                quizContainer.appendChild(questionBox);
+            });
+
+            const submitButton = document.createElement('button');
+            submitButton.className = 'quiz-submit';
+            submitButton.textContent = 'Submit Answers';
+
+            const result = document.createElement('div');
+            result.className = 'quiz-result';
+
+            quizContainer.appendChild(submitButton);
+            quizContainer.appendChild(result);
+            body.appendChild(quizContainer);
+
+
+            // CHECK ANSWERS
+            submitButton.addEventListener('click', () => {
+
+                // RESET QUIZ
+                if (submitButton.dataset.submitted === 'true') {
+                    quizContainer.querySelectorAll('input').forEach(input => {
+                        input.checked = false;
+                        input.disabled = false;
+                    });
+
+                    quizContainer.querySelectorAll('.quiz-option').forEach(label => {
+                        label.classList.remove('correct', 'incorrect');
+                    });
+
+                    quizContainer.querySelectorAll('.quiz-feedback').forEach(feedback => {
+                        feedback.className = 'quiz-feedback';
+                        feedback.textContent = '';
+                    });
+
+                    result.classList.remove('show');
+                    result.innerHTML = '';
+
+                    submitButton.textContent = 'Submit Answers';
+                    submitButton.dataset.submitted = 'false';
+                    return;
+                }
+
+                let score = 0;
+                let answered = 0;
+
+                const questionBoxes = quizContainer.querySelectorAll('.quiz-question');
+
+                questionBoxes.forEach((box, questionIndex) => {
+                    const question = quiz.questions[questionIndex];
+                    const selected = box.querySelector('input:checked');
+                    const feedback = box.querySelector('.quiz-feedback');
+                    const labels = box.querySelectorAll('.quiz-option');
+
+                    const selectedAnswer = selected
+                        ? Number(selected.value)
+                        : -1;
+
+                    if (selected) answered++;
+
+                    labels.forEach((label, optionIndex) => {
+                        const input = label.querySelector('input');
+                        input.disabled = true;
+
+                        if (optionIndex === question.answer) {
+                            label.classList.add('correct');
+                        }
+
+                        if (
+                            optionIndex === selectedAnswer &&
+                            selectedAnswer !== question.answer
+                        ) {
+                            label.classList.add('incorrect');
+                        }
+                    });
+
+                    if (selectedAnswer === question.answer) {
+                        score++;
+
+                        feedback.textContent =
+                            '✓ Correct! ' + question.explanation;
+
+                        feedback.className = 'quiz-feedback correct';
+
+                    } else {
+                        feedback.textContent = selected
+                            ? '✗ Incorrect. Correct answer: ' +
+                              question.options[question.answer] +
+                              '. ' + question.explanation
+                            : '✗ Not answered. Correct answer: ' +
+                              question.options[question.answer] +
+                              '. ' + question.explanation;
+
+                        feedback.className = 'quiz-feedback incorrect';
+                    }
+                });
+
+                const total = quiz.questions.length;
+                const percentage = Math.round((score / total) * 100);
+
+                let message = '';
+
+                if (score === total) {
+                    message = 'Excellent! You got all the answers correct.';
+                } else if (score >= 2) {
+                    message = 'Good work! Review the questions you missed.';
+                } else {
+                    message = 'Keep practicing. Review your lesson and try again.';
+                }
+
+                result.innerHTML = `
+                    <h3>Your Activity Score</h3>
+                    <div class="quiz-score">${score} / ${total}</div>
+                    <p>${percentage}% correct</p>
+                    <p>${answered} out of ${total} questions answered.</p>
+                    <p>${message}</p>
+                `;
+
+                result.classList.add('show');
+
+                submitButton.textContent = 'Try Again';
+                submitButton.dataset.submitted = 'true';
+            });
+        });
+    </script>
+
+</body>
+</html>

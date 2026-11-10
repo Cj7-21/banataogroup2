@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 📝 Change the page title below -->
+    <title>Anima Learn</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-fade">
+
+    <!-- ══════════════════════════════════════════ 
+         NAVIGATION 
+         📝 Update .active class to match current page on each file 
+         ══════════════════════════════════════════ -->
+    <nav class="navbar">
+        <div class="container navbar__inner">
+            <!-- 📝 Change logo text here -->
+            <a class="navbar__logo" href="index.html">
+                👾 <span>Anima</span>Learn
+            </a>
+            <ul class="navbar__links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+                <li><a href="activities.html">Activities</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ══════════════════════════════════════════ 
+         HERO SECTION 
+         📝 Change the headline, subtext, and button labels below 
+         ══════════════════════════════════════════ -->
+    <header class="hero">
+        <!-- Animated film strip background (pure CSS/HTML — no images needed) -->
+        <div class="hero__filmstrip" aria-hidden="true">
+            <div class="filmstrip-row">
+                <!-- generates repeated frames via CSS animation -->
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <!-- duplicate set so the scroll loops seamlessly -->
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+            </div>
+            <div class="filmstrip-row">
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+            </div>
+            <div class="filmstrip-row">
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+                <div class="film-frame"></div><div class="film-frame"></div>
+            </div>
+        </div>
+
+        <div class="container hero__content">
+            <!-- 📝 Change this badge text -->
+            <div class="hero__badge">📌 Animation Educational WEBSITE</div>
+            <h1 class="hero__title">
+                Bring Your <span class="line-accent">Imagination to Life</span>
+            </h1>
+            <!-- 📝 Change this intro paragraph -->
+            <p class="hero__desc">
+                Welcome to AnimaLearn — This website is designed to help you explore the world of animation, from its history to practical techniques. Dive in and start your journey to becoming an animator!
+            </p>
+            <div class="hero__ctas">
+                <a href="lessons.html" class="btn btn--primary">Start Learning →</a>
+                <a href="activities.html" class="btn btn--outline">View Activities</a>
+            </div>
+        </div>
+
+        <!-- HOMEPAGE IMAGE -->
+        <div class="hero__media-frame">
+            <!-- 📝 Updated source to match the provided drawing app layout placeholder -->
+            <img class="hero__media" src="https://cdn.aptoide.com/imgs/2/4/e/24e3a0e5e09f559fbdedfe570480a740_icon.png" />
+        </div>
+    </header>
+
+    <!-- ══════════════════════════════════════════ 
+         LEARNING OBJECTIVES SECTION 
+         📝 Add/edit objectives below. Each <div class="objective-item"> is one objective. 
+         ══════════════════════════════════════════ -->
+    <section class="section" style="background: var(--clr-surface); border-top: 1px solid var(--clr-border); border-bottom: 1px solid var(--clr-border);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__label">Learning Objectives</span>
+                <h2>What You Should<br>Achieve</h2>
+                <p>After studying the six lessons, learners should be able to demonstrate the following knowledge and skills.</p>
+            </div>
+            <div class="objectives-list">
+                <div class="objective-item">
+                    <div class="objective-item__num">1</div>
+                    <p>Describe the meaning of animation and explain major developments from early optical toys to digital and real-time animation.</p>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-item__num">2</div>
+                    <p>Explain the purpose, brand identity, production roles, and ethical responsibilities of an animation studio.</p>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-item__num">3</div>
+                    <p>Identify visual elements and principles of design and explain how they guide effective visual communication.</p>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-item__num">4</div>
+                    <p>Recognize color groups, color schemes, typeface categories, and typography spacing used in design.</p>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-item__num">5</div>
+                    <p>Compare pixels, resolution, raster and vector graphics, and common image file formats.</p>
+                </div>
+                <div class="objective-item">
+                    <div class="objective-item__num">6</div>
+                    <p>Explain the purpose of storyboards, framing, and camera shots when planning a visual sequence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════ 
+         CALL TO ACTION STRIP 
+         📝 You can change the text or remove this section entirely 
+         ══════════════════════════════════════════ -->
+    <section class="section--tight">
+        <div class="container" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+            <div>
+                <h3 style="margin-bottom:0.4rem;">Ready to start your first lesson?</h3>
+                <p style="color:var(--clr-muted); font-size:0.95rem; max-width:50ch;">Head over to the Lessons page and explore each topic at your own pace.</p>
+            </div>
+            <a href="lessons.html" class="btn btn--primary">Go to Lessons →</a>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════ 
+         FOOTER 
+         📝 Change creator name, subject, school year below 
+         ══════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">🎬 <span>Anima</span>Learn</div>
+            <div class="footer__info">
+                <!-- 📝 Edit this info block -->
+                Animation · Senior High School · SY 2026-2027<br>
+                Educational website created for Educational purposes<br>
+                Created by: <strong>Group 2</strong> <!-- 📝 Put your name -->
+            </div>
+            <div class="footer__links">
+                <a href="index.html">Home</a>
+                <a href="lessons.html">Lessons</a>
+                <a href="activities.html">Activities</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ══════════════════════════════════════════ 
